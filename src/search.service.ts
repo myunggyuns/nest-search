@@ -11,6 +11,10 @@ export class SearchService {
         private readonly searchRepository: SearchRepository,
     ) {}
 
+    healthCheck() {
+        return JSON.stringify('health check');
+    }
+
     save(keyword: string) {
         return this.prisma.$transaction(async tx => {
             return this.searchRepository
